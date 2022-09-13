@@ -1,0 +1,97 @@
+''' 1. Dado o Array de inteiros abaixo, ordene-o de tal forma que os números “1” estejam à esquerda.
+Os itens devem ser modificados no lugar, ou seja, você não ira trocar posições e sim colocar os
+números “1” no inicio do Array.
+[2, 1, 5, 2, 5, 2, 1, 1, 1, 7, 9, 13, 127, 21] '''
+
+array = [2, 1, 5, 2, 5, 2, 1, 1, 1, 7, 9, 13, 127, 21]
+
+target = 1
+
+temp_list = [element for element in array if element != target and element or element is None or isinstance(element, bool)]
+
+list_final = [target] * (len(array)- len (temp_list)) + temp_list
+
+print(f'Lista após  reorganizar os valores alvo de "{target}" para começo da lista: \n {list_final}\n \nA lista original era:\n{array}')
+
+
+'''2. Dada a seguinte arvore binária de palavras, faça uma função que busque nessa arvore pela
+palavra-chave. O output da sua função deve ser o caminho até chegar no item procurado. Por
+exemplo, se o input de buscar for “goiaba” o output deve ser uma string “Maça ->; morango ->;
+Goiaba”.'''
+
+print(' Digite o nome de uma das frutas abaixo a fim de que seja criado a trilha do item procurado.' )
+
+fruta = input('Maçã \nMorango\nGoiaba\nLimão\nPera\nAbacaxi\nLaranja\nBanana\nCebola \n ')
+
+lista1 = ['Maçã', 'Morango', 'Goiaba']
+lista2 = ['Maçã', 'Morango', 'Limão']
+lista3 = ['Maçã', 'Pera', 'Abacaxi', 'Laranja', 'Banana']
+lista4 = ['Maçã', 'Pera', 'Abacaxi', 'Laranja', 'Cebola']
+lista5 = ['Maçã', 'Pera', 'Abacaxi', 'Laranja']
+lista6 = ['Maçã', 'Pera', 'Abacaxi']
+lista7 = ['Maçã', 'Pera']
+lista8 = ['Maçã', 'Morango']
+lista9 = ['Maçã']
+
+
+if fruta.title() == 'Goiaba'.title():
+    print(lista1)
+
+elif fruta.title() == 'Limão'.title():
+    print(lista2)
+
+elif fruta.title() == 'Banana'.title():
+    print(lista3)
+
+elif fruta.title() == 'Cebola'.title():
+    print(lista4)
+
+elif fruta.title() == 'Laranja'.title():
+    print(lista5)
+
+elif fruta.title() == 'Abacaxi'.title():
+    print(lista6)
+
+elif fruta.title() == 'Pera'.title():
+    print(lista7)
+
+elif fruta.title() == 'Morango'.title():
+    print(lista8)
+
+elif fruta.title() == 'Maça'.title():
+    print(lista9)
+
+else:
+    print('A palavra digitada não se encontranda na lista acima!')
+    
+
+'''3. Dado o array de números inteiros [1, 15, 2, 7, 2, 5, 7, 1, 4] crie uma função que recebe um
+argumento X e retorne true ou false caso haja no array uma combinação de soma entre dois
+números que resulte no input X. Exemplo: Se X=2, a função deve retornar true pois existem dois
+números 1 dentro do array 1+1 = 2. Caso X=1231 a função deve retornar false pois não existe
+uma combina de dois números capazes de somar 1231.'''
+
+lista = [1, 15, 2, 7, 2, 5, 7, 1, 4]
+
+x = input('Digite um dos números da lista.\n[1, 15, 2, 7, 2, 5, 7, 1, 4]\n')
+
+if x.isnumeric():
+    x = int(x)
+else:
+    exit('O programa trabalha somente com números inteiros.')
+
+resultado = x % 2
+if resultado == 0:
+    print('True')
+else:
+    print('False')
+    
+    """ 4. Dado o array [9, 2, 3, 1, 4] encontre todos os números que estão faltando para completar o
+intervalo 0 a n, onde n é o maior número dentro do array. Adicione os números faltando dentro
+do array. """
+
+
+# Metodo 1
+array = [9, 2, 3, 1, 4]
+array.extend([5, 6, 7])
+print(array)
